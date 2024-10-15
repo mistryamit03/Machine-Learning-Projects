@@ -22,7 +22,7 @@ The data set contains 3 classes of 50 instances each, where each class refers to
 - scikit-learn
 
 
-#Algorithms
+# Algorithms
 
 - Logistic Regression
 - K-Nearest Neighbors
