@@ -1,6 +1,8 @@
 # CROP RECOMMENDATION PROJECT - USING MACHINE LEARNING 
 
-**Objective: Create an agronomic recommendation model using Machine Learning Algorithms such as basic Decision tree classifier and KNN Algorithm**
+**Objective:**
+
+Create an agronomic recommendation model using Machine Learning Algorithms such as basic Decision tree classifier and KNN Algorithm
 
 **Explanation:**
 
