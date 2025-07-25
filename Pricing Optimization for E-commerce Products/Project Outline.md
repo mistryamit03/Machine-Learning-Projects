@@ -1,6 +1,6 @@
-# 🧠 Demand and Pricing Optimization for E-commerce Products
+# 🧠 Demand and Pricing Optimisation for E-commerce Products
 
-A full-stack data science project designed to optimize pricing strategies across multiple product categories using predictive modeling and neural networks.
+A full-stack data science project designed to optimise pricing strategies across multiple product categories using predictive modeling and neural networks.
 
 ---
 
@@ -51,7 +51,7 @@ fp1_diff, fp2_diff, fp3_diff, price_ratio_1, price_ratio_2, price_ratio_3,
 price_diff_1, price_diff_2, price_diff_3, price_change
 
 
-These features are used for modeling elasticity, computing profits, and benchmarking competitors.
+These features are used for modelling elasticity, computing profits, and benchmarking competitors.
 
 🔮 Forecasting Product Demand
 We apply both classical and ML-based forecasting techniques:
@@ -62,12 +62,12 @@ XGBoost: Handles non-linear demand patterns.
 
 Evaluation metrics: RMSE, MAE, and R².
 
-💸 Optimizing Prices
-A custom-built Multi-Layer Perceptron (MLP) is used to optimize product pricing (unit and total price).
+💸 Optimising Prices
+A custom-built Multi-Layer Perceptron (MLP) is used to optimise product pricing (unit and total price).
 
 📐 Architecture Summary
 Layer	Details
-Input Layer	All selected numerical features
+Input Layer	: All selected numerical features
 Hidden Layer 1	64 neurons + ReLU + Dropout(0.2)
 Hidden Layer 2	32 neurons + ReLU + Dropout(0.2)
 Hidden Layer 3	16 neurons + ReLU
@@ -86,10 +86,10 @@ Competition prices
 Demand fluctuations
 
 📊 Projecting Revenue
-Once optimized prices are obtained, revenue can be simulated using expected quantities.
+Once optimised prices are obtained, revenue can be simulated using expected quantities.
 
 Example Simulation
-Category	Optimized Price	Expected Quantity	Simulated Revenue
+Category	Optimised Price	Expected Quantity	Simulated Revenue
 perfumery	412.29	159	65,553.61
 watches_gifts	1689.66	753	1,272,317.31
 
