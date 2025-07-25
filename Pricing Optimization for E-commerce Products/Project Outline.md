@@ -1,6 +1,6 @@
 # 🧠 Demand and Pricing Optimisation for E-commerce Products
 
-A full-stack data science project designed to optimise pricing strategies across multiple product categories using predictive modeling and neural networks.
+A full-stack data science project designed to optimise pricing strategies across multiple product categories using predictive modelling and neural networks.
 
 ---
 
@@ -45,7 +45,7 @@ Your dataset should include the following features, grouped and described below:
 |--------|-------------|
 | `product_id` | Unique identifier for each product |
 | `product_category_name` | Category the product belongs to |
-| `product_name_lenght` | Length of product name (used as a proxy for descriptiveness) |
+| `product_name_length` | Length of product name (used as a proxy for descriptiveness) |
 | `product_description_lenght` | Length of product description text |
 | `product_photos_qty` | Number of photos associated with the product |
 | `product_weight_g` | Weight of the product in grams |
@@ -60,7 +60,7 @@ Your dataset should include the following features, grouped and described below:
 | `month` | Numeric month (1 to 12) |
 | `year` | Year of transaction |
 | `weekday` | Day of the week (0 = Monday, 6 = Sunday) |
-| `weekend` | Boolean flag indicating if the sale happened on weekend |
+| `weekend` | Boolean flag indicating if the sale happened on a weekend |
 | `holiday` | Boolean flag for public holidays |
 
 ---
@@ -128,79 +128,91 @@ This feature setup is ideal for building predictive models around demand, price 
 
 ---
 
+## 🔮 Demand Forecasting
 
+This project uses a hybrid approach combining classical and machine learning methods:
 
+- **ARIMA (AutoRegressive Integrated Moving Average)**: Applied per product category after verifying time series stationarity. Helps capture seasonality and trend behavior.
+- **XGBoost**: A gradient boosting method used to handle non-linear relationships in demand forecasting.
 
-These features are used for modelling elasticity, computing profits, and benchmarking competitors.
+**📏 Evaluation Metrics** used for demand models:
+- RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
+- R² Score (Explained Variance)
 
-🔮 Forecasting Product Demand
-We apply both classical and ML-based forecasting techniques:
+---
 
-ARIMA: Applied per category after stationarity checks to model seasonality and trends.
+## 💸 Price Optimisation using Neural Networks
 
-XGBoost: Handles non-linear demand patterns.
+A **custom Multi-Layer Perceptron (MLP)** is implemented to optimise pricing decisions (unit and total price) based on multiple factors like freight cost, competition, and demand.
 
-Evaluation metrics: RMSE, MAE, and R².
+### 🧠 Neural Network Architecture
 
-💸 Optimising Prices
-A custom-built Multi-Layer Perceptron (MLP) is used to optimise product pricing (unit and total price).
+| Layer Type     | Configuration                            |
+|----------------|-------------------------------------------|
+| Input Layer    | All selected numeric features             |
+| Hidden Layer 1 | 64 neurons + ReLU + Dropout (rate: 0.2)   |
+| Hidden Layer 2 | 32 neurons + ReLU + Dropout (rate: 0.2)   |
+| Hidden Layer 3 | 16 neurons + ReLU                         |
+| Output Layer   | 1 neuron (regression output)              |
 
-📐 Architecture Summary
-Layer	Details
-Input Layer	: All selected numerical features
-Hidden Layer 1	64 neurons + ReLU + Dropout(0.2)
-Hidden Layer 2	32 neurons + ReLU + Dropout(0.2)
-Hidden Layer 3	16 neurons + ReLU
-Output Layer	1 neuron (predicts price)
-Loss Function	MSE (regression task)
-Optimizer	Adam
+- **Loss Function**: Mean Squared Error (MSE)
+- **Optimizer**: Adam
 
-The model captures key drivers of pricing such as:
+🔍 The model captures key drivers of pricing:
+- Freight costs  
+- Product ratings (score)  
+- Competitor pricing  
+- Demand elasticity and fluctuations  
 
-Freight cost
+---
 
-Product score
+## 📊 Revenue Projection
 
-Competition prices
+After optimised prices are obtained, we simulate revenue outcomes by applying expected sales volumes.
 
-Demand fluctuations
+### 🧮 Example Simulation Table
 
-📊 Projecting Revenue
-Once optimised prices are obtained, revenue can be simulated using expected quantities.
+| Product Category | Optimized Price | Expected Quantity | Simulated Revenue |
+|------------------|------------------|-------------------|-------------------|
+| `perfumery`      | 412.29           | 159               | 65,553.61         |
+| `watches_gifts`  | 1689.66          | 753               | 1,272,317.31      |
 
-Example Simulation
-Category	Optimised Price	Expected Quantity	Simulated Revenue
-perfumery	412.29	159	65,553.61
-watches_gifts	1689.66	753	1,272,317.31
+---
 
-✅ Evaluating Model Performance
-Models are evaluated using:
+## ✅ Model Performance Evaluation
 
-R² Score – Goodness of fit
+We evaluate each forecasting and pricing model using:
 
-RMSE – Error magnitude
+- **R² Score** – Measures how well predictions match observed values  
+- **RMSE** – Shows how large the errors are in the same units as the target  
+- **MAE** – Gives the average magnitude of errors without penalising large deviations
 
-MAE – Absolute error
+Each model (ARIMA, XGBoost, and MLP) is evaluated per product category separately.
 
-Separate metrics are generated per category and model (ARIMA/XGBoost/MLP).
+---
 
-⚙️ Technical Stack
-Tool/Library	Purpose
-Python 3.x	Core programming language
-Pandas, NumPy	Data manipulation
-Seaborn, Matplotlib, Plotly	Visualization
-Scikit-learn	Preprocessing & metrics
-Statsmodels	ARIMA forecasting
-XGBoost	Demand regression
-TensorFlow/Keras	Neural network modeling
-SHAP	Model explainability (optional)
+## ⚙️ Technical Stack
 
-🤝 Contribution Guidelines
-Pull requests are welcome for:
+| Tool / Library       | Purpose                                      |
+|----------------------|----------------------------------------------|
+| Python 3.x           | Core programming language                    |
+| Pandas, NumPy        | Data manipulation and transformation         |
+| Seaborn, Matplotlib, Plotly | Data visualisation                    |
+| Scikit-learn         | Preprocessing, model evaluation              |
+| Statsmodels          | Time series forecasting (ARIMA)             |
+| XGBoost              | Non-linear demand regression                 |
+| TensorFlow / Keras   | Neural network model for pricing             |
+| SHAP (optional)      | Model interpretability and feature insights  |
 
-Enhancing model logic
+---
 
-Adding new optimization scenarios
+## 🤝 Contribution Guidelines
 
-Improving visualizations or interactivity
+Contributions are welcome! Feel free to submit pull requests for:
+
+- Improving forecasting logic or pricing models  
+- Adding new pricing or demand scenarios  
+- Enhancing visual storytelling and dashboard interactivity  
+
 
